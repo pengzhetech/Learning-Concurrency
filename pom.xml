@@ -11,6 +11,14 @@
     <properties>
         <kotlin.version>1.2.0</kotlin.version>
     </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+        </dependency>
 
+    </dependencies>
 
 </project>
