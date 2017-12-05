@@ -1,4 +1,4 @@
-package com.javaman.concurrency.application;
+package com.javaman.concurrency.application.connectionpool;
 
 import java.sql.Connection;
 import java.util.LinkedList;

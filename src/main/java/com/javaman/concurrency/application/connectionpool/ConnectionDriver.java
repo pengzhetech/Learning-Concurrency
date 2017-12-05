@@ -1,4 +1,4 @@
-package com.javaman.concurrency.application;
+package com.javaman.concurrency.application.connectionpool;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

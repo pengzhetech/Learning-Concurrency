@@ -1,7 +1,6 @@
-package com.javaman.concurrency.application;
+package com.javaman.concurrency.application.connectionpool;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
