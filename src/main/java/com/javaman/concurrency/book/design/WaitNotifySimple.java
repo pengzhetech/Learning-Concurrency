@@ -12,6 +12,7 @@ public class WaitNotifySimple {
     public static class T1 extends Thread {
         @Override
         public void run() {
+
             synchronized (object) {
                 System.out.println(System.currentTimeMillis() + ":T1 start!");
                 try {
