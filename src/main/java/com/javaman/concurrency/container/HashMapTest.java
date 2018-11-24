@@ -1,3 +1,4 @@
+/*
 package com.javaman.concurrency.container;
 
 import org.junit.Test;
@@ -5,6 +6,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.UUID;
 
+*/
 /**
  * @author:彭哲
  * @Date:2017/12/6
@@ -23,7 +25,8 @@ import java.util.UUID;
  * 首先将数据分成一段一段的存储,然后给每一段数据配上一把锁,当一个线程占用锁访问其中的一个段数据时
  * 其他段的数据也能被其他线程访问
  *
- */
+ *//*
+
 public class HashMapTest {
 
     static final HashMap<String, String> map = new HashMap<String, String>(2);
@@ -51,3 +54,4 @@ public class HashMapTest {
 
 
 }
+*/

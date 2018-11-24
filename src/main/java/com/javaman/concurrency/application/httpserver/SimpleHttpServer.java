@@ -112,13 +112,13 @@ public class SimpleHttpServer {
                 out.println("");
                 out.flush();
             } finally {
-                close(br, in, reader, out, socket);
+              //  close(br, in, reader, out, socket);
             }
         }
     }
 
     private static void close(Closeable... closeables) {
-        if (closeables != null) {
+    /*    if (closeables != null) {
             for (Closeable cloneable : closeables) {
                 try {
                     cloneable.close();
@@ -126,8 +126,8 @@ public class SimpleHttpServer {
                     e.printStackTrace();
                 }
             }
+*/
 
-        }
 
     }
 

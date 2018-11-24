@@ -1,3 +1,4 @@
+/*
 package com.javaman.concurrency.lock;
 
 import org.junit.Test;
@@ -9,10 +10,12 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+*/
 /**
  * @author:彭哲
  * @Date:2017/12/5 测试ReentrantLock的公平和非公平锁
- */
+ *//*
+
 public class FailAndUnfailTest {
 
     private static Lock failLock = new ReentrantLock2(true);
@@ -65,3 +68,4 @@ public class FailAndUnfailTest {
 
 
 }
+*/

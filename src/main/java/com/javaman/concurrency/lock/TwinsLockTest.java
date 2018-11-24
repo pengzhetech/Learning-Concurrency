@@ -1,3 +1,4 @@
+/*
 package com.javaman.concurrency.lock;
 
 
@@ -6,10 +7,12 @@ import org.junit.Test;
 
 import java.util.concurrent.locks.Lock;
 
+*/
 /**
  * @author:彭哲
  * @Date:2017/12/5
- */
+ *//*
+
 public class TwinsLockTest {
     @Test
     public void test() {
@@ -44,3 +47,4 @@ public class TwinsLockTest {
 
     }
 }
+*/

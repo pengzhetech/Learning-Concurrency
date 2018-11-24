@@ -1,3 +1,4 @@
+/*
 package com.javaman.concurrency.atomic;
 
 import org.junit.Test;
@@ -7,10 +8,12 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.atomic.AtomicReference;
 
+*/
 /**
  * @author:彭哲
  * @Date:2017/12/6
- */
+ *//*
+
 public class AtomicClassTest {
 
     static AtomicInteger ai = new AtomicInteger(19);
@@ -75,9 +78,11 @@ public class AtomicClassTest {
         }
     }
 
-    /**
+    */
+/**
      * 创建原子更新器,并设置需要更新的对象和对象的属性
-     */
+     *//*
+
     public static AtomicIntegerFieldUpdater<Custom> updater =
             AtomicIntegerFieldUpdater.newUpdater(Custom.class, "old");
 
@@ -121,3 +126,4 @@ public class AtomicClassTest {
 
 
 }
+*/
