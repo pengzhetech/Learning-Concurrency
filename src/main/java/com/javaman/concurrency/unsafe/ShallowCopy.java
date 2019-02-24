@@ -50,7 +50,7 @@ public class ShallowCopy {
 
     static long sizeOf(Object object) {
 
-        Unsafe unsafe = UnsafeUtil.getUnsafe();
+        Unsafe unsafe = getUnsafe();
         HashSet<Field> fields = new HashSet<>();
         Class<?> aClass = object.getClass();
         while (aClass != Object.class) {
