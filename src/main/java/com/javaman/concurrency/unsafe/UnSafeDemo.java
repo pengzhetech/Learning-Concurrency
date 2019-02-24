@@ -15,41 +15,50 @@ public class UnSafeDemo {
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
 
+        //通过反射得到theUnsafe对应的field对象
         Field field = Unsafe.class.getDeclaredField("theUnsafe");
+        //设置该Field为可访问
         field.setAccessible(true);
+        //通过Field得到该Field对应的具体对象,传入null是因为该Field为static的
         Unsafe unsafe = (Unsafe) field.get(null);
         System.out.println(unsafe);
 
-
+        //通过allocateInstance直接创建对象
         User user = (User) unsafe.allocateInstance(User.class);
         Class<? extends User> userClass = user.getClass();
         Field name = userClass.getDeclaredField("name");
         Field age = userClass.getDeclaredField("age");
         Field id = userClass.getDeclaredField("id");
 
+        //获取实例变量name和age在内存中的偏移量并设置值
         unsafe.putInt(user, unsafe.objectFieldOffset(age), 18);
         unsafe.putObject(user, unsafe.objectFieldOffset(name), "架构师是怎样炼成的");
 
+        //这里返回User.class
         Object staticFieldBase = unsafe.staticFieldBase(id);
-        System.out.println("staticFieldBase:"+staticFieldBase);
+        System.out.println("staticFieldBase:" + staticFieldBase);
 
+        //获取静态变量id的偏移量staticFieldOffset
         long staticFieldOffset = unsafe.staticFieldOffset(userClass.getDeclaredField("id"));
-        System.out.println("设置前的ID:"+unsafe.getObject(staticFieldBase,staticFieldOffset));
+        //获取静态变量的值
+        System.out.println("设置前的ID:" + unsafe.getObject(staticFieldBase, staticFieldOffset));
 
-        unsafe.putObject(staticFieldBase,staticFieldOffset,"6666666666");
+        //设置值
+        unsafe.putObject(staticFieldBase, staticFieldOffset, "6666666666");
+        //获取静态变量的值
+        System.out.println("设置前的ID:" + unsafe.getObject(staticFieldBase, staticFieldOffset));
 
-        System.out.println("设置前的ID:"+unsafe.getObject(staticFieldBase,staticFieldOffset));
-
-        System.out.println("输出User:"+user.toString());
+        System.out.println("输出User:" + user.toString());
 
         long data = 100;
-        byte size = 1;
-
+        byte size = 1;//单位字节
+        //调用allocateMemory分配堆外内存,并获取内存地址memoryAddress
         long memoryAddress = unsafe.allocateMemory(size);
-        unsafe.putAddress(memoryAddress,data);
-
+        //直接往内存写数据
+        unsafe.putAddress(memoryAddress, data);
+        //获取指定内存地址的数据
         long addressData = unsafe.getAddress(memoryAddress);
-        System.out.println("addressData:"+addressData);
+        System.out.println("addressData:" + addressData);
 
 
     }
