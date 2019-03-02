@@ -4,11 +4,6 @@ import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
 
-/**
- * @author pengzhe
- * @date 2019-02-24 20:29
- * @description
- */
 
 public class ChangePrivateField {
 
@@ -19,7 +14,7 @@ public class ChangePrivateField {
 
         Unsafe unsafe = UnsafeUtil.getUnsafe();
         Field field = fieldClass.getClass().getDeclaredField("accessAllowed");
-        unsafe.putInt(fieldClass,unsafe.objectFieldOffset(field),666);
+        unsafe.putInt(fieldClass, unsafe.objectFieldOffset(field), 666);
         System.out.println(fieldClass.giveAccess());
 
     }

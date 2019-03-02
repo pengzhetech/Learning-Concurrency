@@ -3,8 +3,6 @@ package com.javaman.concurrency.unsafe;
 import sun.misc.Unsafe;
 
 /**
- * @author pengzhe
- * @date 2019-02-24 22:20
  * @description Unsafe操作堆外内存
  * C++中有malloc，realloc和free方法来操作内存。在Unsafe类中对应为：
  * <p>

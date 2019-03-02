@@ -23,11 +23,12 @@ public class CountDownLatchTest {
             @Override
             public void run() {
                 System.out.println(1);
-                countDownLatch.countDown();
+              //  countDownLatch.countDown();
                 System.out.println(2);
-                countDownLatch.countDown();
+               // countDownLatch.countDown();
             }
         }).start();
-        countDownLatch.await();
+       countDownLatch.await();
+        System.out.println("3");
     }
 }

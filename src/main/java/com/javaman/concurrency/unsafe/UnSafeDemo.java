@@ -4,11 +4,6 @@ import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
 
-/**
- * @author pengzhe
- * @date 2019-02-24 16:02
- * @description
- */
 
 public class UnSafeDemo {
 
@@ -25,7 +20,9 @@ public class UnSafeDemo {
 
         //通过allocateInstance直接创建对象
         User user = (User) unsafe.allocateInstance(User.class);
+
         Class<? extends User> userClass = user.getClass();
+
         Field name = userClass.getDeclaredField("name");
         Field age = userClass.getDeclaredField("age");
         Field id = userClass.getDeclaredField("id");
@@ -49,17 +46,6 @@ public class UnSafeDemo {
         System.out.println("设置前的ID:" + unsafe.getObject(staticFieldBase, staticFieldOffset));
 
         System.out.println("输出User:" + user.toString());
-
-        long data = 100;
-        byte size = 1;//单位字节
-        //调用allocateMemory分配堆外内存,并获取内存地址memoryAddress
-        long memoryAddress = unsafe.allocateMemory(size);
-        //直接往内存写数据
-        unsafe.putAddress(memoryAddress, data);
-        //获取指定内存地址的数据
-        long addressData = unsafe.getAddress(memoryAddress);
-        System.out.println("addressData:" + addressData);
-
 
     }
 
