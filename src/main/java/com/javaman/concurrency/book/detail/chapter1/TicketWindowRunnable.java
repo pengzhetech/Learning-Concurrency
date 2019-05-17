@@ -9,7 +9,7 @@ package com.javaman.concurrency.book.detail.chapter1;
 public class TicketWindowRunnable implements Runnable {
 
     private int index = 1;
-    private final static int MAX = 5000000;
+    private final static int MAX = 50;
 
     @Override
     public void run() {
@@ -22,7 +22,6 @@ public class TicketWindowRunnable implements Runnable {
             }
         }
     }
-
 
     public static void main(String[] args) {
 

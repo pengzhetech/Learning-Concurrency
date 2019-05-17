@@ -8,6 +8,7 @@ package com.javaman.concurrency.threads;
  */
 public class Join {
 
+
     public static void main(String[] args) {
 
         Thread previous = Thread.currentThread();
