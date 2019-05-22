@@ -12,13 +12,7 @@ public class TryConcurrency {
 
 
     public static void main(String[] args) {
-        new Thread() {
-            @Override
-            public void run() {
-                browseNew();
-            }
-        }.start();
-
+       new Thread(TryConcurrency::browseNew).start();
         enjoyMusic();
     }
 
@@ -26,14 +20,14 @@ public class TryConcurrency {
     private static void browseNew() {
         for (; ; ) {
             System.out.println("News");
-            sleep(1);
+           sleep(1);
         }
     }
 
     private static void enjoyMusic() {
         for (; ; ) {
             System.out.println("Music");
-            sleep(1);
+              sleep(1);
         }
     }
 
