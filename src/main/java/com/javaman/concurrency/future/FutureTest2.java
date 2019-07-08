@@ -3,6 +3,7 @@ package com.javaman.concurrency.future;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.concurrent.locks.LockSupport;
 
 /**
  * @auther: pengzhe
@@ -10,18 +11,14 @@ import java.util.concurrent.*;
  * @description:
  */
 public class FutureTest2 {
-    public static void main(String[] args) throws InterruptedException,
-            ExecutionException {
-        List<Future<String>> results = new ArrayList<Future<String>>();
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        for (int i = 0; i < 10; i++) {
-            results.add(executorService.submit(new Task()));
-        }
-        for (Future<String> future : results) {
-            System.out.println(future.get());
-        }
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-        System.out.println("Main complete");
+        Future<String> submit = executorService.submit(new Task());
+      String s = submit.get();
+       System.out.println("返回值--------->" + s);
+
+        System.out.println("主线程结束!!!!!!");
 
         if (!executorService.isShutdown()) {
             executorService.shutdown();
@@ -32,8 +29,12 @@ public class FutureTest2 {
 
         @Override
         public String call() throws Exception {
-            System.out.println("execute!!!");
-            return "complete";
+            System.out.println("Callable开始执行!!!");
+            System.out.println("睡觉开始"+System.nanoTime());
+            Thread.sleep(1000);
+            System.out.println("睡觉完成"+System.nanoTime());
+            System.out.println("子线程结束");
+            return "我是返回值";
         }
     }
 
